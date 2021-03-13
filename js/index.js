@@ -31,9 +31,10 @@ function buildResultList(list) {
 
 // Refresh Search Functionality
 function refreshSearch() {
-  // Clear Other inputs from previous searches
+  // Clear Other inputs and messages from previous searches
   $("#search-input").val('')
   $("#search-tag-input").val('')
+  $("#no-result-info").hide();
 
   downloadAllVideos();
 }
@@ -68,7 +69,8 @@ function getAllAvailableTags(list) {
 
 // Filter by tags functionality
 function filterByTagInput() {
-  // Clear Other inputs from previous searches
+  // Clear Other inputs and messages from previous searches
+  $("#no-result-info").hide();
   $("#search-input").val('')
 
   // Get user search input, remove punctuation and break words into an array
@@ -107,7 +109,14 @@ function filterByTagInput() {
         top20Videos.push(nonDuplicatesArray.find( video => video.averageUserRating === rate))
       })
 
-      buildResultList(top20Videos);
+      // Build Results or render info message if no results
+      if (top20Videos.length > 0) {
+        buildResultList(top20Videos);
+      } else {
+        $("#result-list").empty();
+        $("#no-result-info").show();
+      }
+
     },
     error: function(error) {
       console.log(error);
@@ -118,7 +127,8 @@ function filterByTagInput() {
 
 // Search Video Titles and Teachers by user input
 function filterBySearchInput() {
-  // Clear Other inputs from previous searches
+  // Clear Other inputs and messages from previous searches
+  $("#no-result-info").hide();
   $("#search-tag-input").val('')
   
   // Get user search input
@@ -140,7 +150,14 @@ function filterBySearchInput() {
           filteredResults.push(video)
         }
       })
-      buildResultList(filteredResults)
+      
+      // Build Results or render info message if no results
+      if (filteredResults.length > 0) {
+        buildResultList(filteredResults);
+      } else {
+        $("#result-list").empty();
+        $("#no-result-info").show();
+      }
     },
     error: function(error) {
       console.log(error);

@@ -35,13 +35,16 @@
   <label for="search-input">Search:</label>
   <input id="search-input" type="text" placeholder="Search here..." >
   <input id="search-btn" type="submit" value="Search" onClick="filterBySearchInput()">
-
-  <ul id="result-list">
+  
+  <p id="no-result-info">Sorry, there are currently no videos for your search.</p>
+  
+  <ul id="result-list"> 
     <!-- generated dynamically -->
   </ul>
 
   <script>
     $(document).ready(function() {
+      $("#no-result-info").hide()
       downloadAllVideos();
     })
   </script>
