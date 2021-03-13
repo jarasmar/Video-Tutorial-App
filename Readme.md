@@ -18,3 +18,19 @@ up to date information.
 - Searching Methods should be covered with tests.
 
 - User interface should be clear and easily navigable for the end-user.
+
+
+## Example of JSON Response
+```
+[
+  {
+    "id":"3fda6df9-97aa-4039-ac22-5978e6c73d5f",
+    "videoUrl":"https://thisurldoesnotactuallyexist.totallynotreal/3fda6df9-97aa-4039-ac22-5978e6c73d5f",
+    "videoTitle":"Practice: Places",
+    "tags":["Exciting","Energetic","Medium","Exploring"],
+    "teacherName":"Katy",
+    "teacherId":"611601f4-7a7a-4e43-a60f-0265cd18dfce",
+    "averageUserRating":0.6683530068243697
+  }
+]
+```
