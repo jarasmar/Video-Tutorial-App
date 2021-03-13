@@ -11,7 +11,7 @@ video tutorial information to a user.
 - [x] The app has a way for the user to refresh the video tutorials to view the most
 up to date information.
 
-- [ ] Users should be able to search by tags and get the top 20 rated videos that contain any of the provided tags.
+- [x] Users should be able to search by tags and get the top 20 rated videos that contain any of the provided tags.
 
 - [x] Users should be able to search by typed input and get a colection of tutorials that match the search term.
 

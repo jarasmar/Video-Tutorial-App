@@ -24,6 +24,7 @@ function buildResultList(list) {
     <span><a href="${video.videoUrl}" target=blank>${video.videoTitle}</a></span>\
     <span>Tags: ${video.tags}</span>\
     <span>Teacher: ${video.teacherName}</span>\
+    <span>Rating: ${video.averageUserRating}</span>\
     </li>`)
   });
 }
@@ -60,7 +61,6 @@ function getAllAvailableTags(list) {
 function filterByTagInput() {
   // Get user search input, remove punctuation and break words
   var inputTags = $("#search-tag-input").val().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").split(" ");
-  console.log(inputTags)
   
   var filteredResults = [];
 
@@ -79,17 +79,30 @@ function filterByTagInput() {
           }
         })
       })
+
       // Remove Duplicates from filteredResults Array
-      var finalResult = filteredResults.filter((data, index) => {
+      var nonDuplicatesArray = filteredResults.filter((data, index) => {
         return filteredResults.indexOf(data) === index;
       })
-      buildResultList(finalResult)
+
+      // Get the top 20 ratings for our search result videos
+      var ratingsArray = nonDuplicatesArray.map(video => video.averageUserRating)
+      var top20RatingsArray = ratingsArray.sort().reverse().slice(0, 20);
+
+      // Get the videos with those 20 higher ratings
+      var top20Videos = [];
+      top20RatingsArray.forEach(function(rate) {
+        top20Videos.push(nonDuplicatesArray.find( video => video.averageUserRating === rate))
+      })
+
+      buildResultList(top20Videos);
     },
     error: function(error) {
       console.log(error);
     }
   })
 }
+
 
 // Search Video Titles and Teachers by user input
 function filterBySearchInput() {
