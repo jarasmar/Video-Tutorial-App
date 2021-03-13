@@ -24,9 +24,18 @@ function buildResultList(list) {
     <span><a href="${video.videoUrl}" target=blank>${video.videoTitle}</a></span>\
     <span>Tags: ${video.tags}</span>\
     <span>Teacher: ${video.teacherName}</span>\
-    <span>Rating: ${video.averageUserRating}</span>\
+    <span>Rating: ${(video.averageUserRating * 10).toFixed(2)}</span>\
     </li>`)
   });
+}
+
+// Refresh Search Functionality
+function refreshSearch() {
+  // Clear Other inputs from previous searches
+  $("#search-input").val('')
+  $("#search-tag-input").val('')
+
+  downloadAllVideos();
 }
 
 // Get List of all tags used at the API result
@@ -59,7 +68,10 @@ function getAllAvailableTags(list) {
 
 // Filter by tags functionality
 function filterByTagInput() {
-  // Get user search input, remove punctuation and break words
+  // Clear Other inputs from previous searches
+  $("#search-input").val('')
+
+  // Get user search input, remove punctuation and break words into an array
   var inputTags = $("#search-tag-input").val().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").split(" ");
   
   var filteredResults = [];
@@ -106,6 +118,9 @@ function filterByTagInput() {
 
 // Search Video Titles and Teachers by user input
 function filterBySearchInput() {
+  // Clear Other inputs from previous searches
+  $("#search-tag-input").val('')
+  
   // Get user search input
   var input = $("#search-input").val();
   
