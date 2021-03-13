@@ -77,3 +77,33 @@ function filterByTag(tag) {
     }
   })
 }
+
+// Search Video Titles and Teachers by user input
+function filterBySearchInput() {
+  // Get user search input
+  var input = $("#search-input").val();
+  
+  var filteredResults = [];
+
+  $.ajax({
+    url: "https://lingumi-take-home-test-server.herokuapp.com/videoTutorials/",
+    type: "GET",
+    success: function(result) {
+      result.forEach(function(video) {
+        var videoTitle = video.videoTitle.toLowerCase();
+        var teacher = video.teacherName.toLowerCase()       
+        if (videoTitle.match(input.toLowerCase())) {
+          filteredResults.push(video)
+        }
+        if (teacher.match(input.toLowerCase())) {
+          filteredResults.push(video)
+        }
+      })
+      buildResultList(filteredResults)
+    },
+    error: function(error) {
+      console.log(error);
+    }
+  })
+
+}
