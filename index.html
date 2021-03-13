@@ -16,7 +16,7 @@
   <input type="submit" onClick="downloadAllVideos();" value="Reload">
   
   <label for="tag-selector">Filter by tag:</label>
-  <select id="tag-selector" name="tag-selector">
+  <select id="tag-selector" name="tag-selector" onChange="filterByTag(this.value);">
     <option value="Exciting">Exciting</option>
     <option value="Energetic">Energetic</option>
     <option value="Medium">Medium</option>

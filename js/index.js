@@ -16,6 +16,8 @@ function downloadAllVideos() {
 // Build List with API result
 function buildResultList(list) {
   var listContainer = $("#result-list")
+  // Clear previous results
+  listContainer.empty();
   
   list.forEach(function(video) {
     $(listContainer).append(`<li class="list-item" id="${video.id}">\
@@ -53,3 +55,25 @@ function getAllAvailableTags(list) {
 //     $(tagsSelector).add(option, null);
 //   })
 // }
+
+// Filter by tags functionality
+function filterByTag(tag) {
+  var filteredResults = [];
+
+  $.ajax({
+    url: "https://lingumi-take-home-test-server.herokuapp.com/videoTutorials/",
+    type: "GET",
+    success: function(result) {
+      result.forEach(function(video) {
+        var videoTags = video.tags;
+        if (videoTags.includes(tag)) {
+          filteredResults.push(video)
+        }
+      })
+      buildResultList(filteredResults)
+    },
+    error: function(error) {
+      console.log(error);
+    }
+  })
+}
