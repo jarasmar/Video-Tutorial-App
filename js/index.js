@@ -5,6 +5,7 @@ function downloadAllVideos() {
     type: "GET",
     success: function(result) {
       buildResultList(result)
+      getAllAvailableTags(result)
     },
     error: function(error) {
       console.log(error);
@@ -24,3 +25,31 @@ function buildResultList(list) {
     </li>`)
   });
 }
+
+// Get List of all tags used at the API result
+function getAllAvailableTags(list) {
+  var tagsArray = [];
+  
+  list.forEach(function(video) {
+    var tags = video.tags;
+    tags.forEach(function(tag) {
+      if (!tagsArray.includes(tag)) {
+        tagsArray.push(tag);
+      }
+    })
+  })
+  // addTagOptionsToSelect(tagsArray)
+}
+
+// Add tags dynamically to the selector
+// function addTagOptionsToSelect(tags) {
+//   var tagsSelector = $("#tag-selector");
+
+//   tags.forEach(function(tag) {
+//     var option = document.createElement("option");
+//     option.text = `${tag}`;
+//     option.value = `${tag}`;
+//     console.log(option)
+//     $(tagsSelector).add(option, null);
+//   })
+// }
