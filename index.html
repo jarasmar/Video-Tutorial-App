@@ -16,7 +16,9 @@
   <input type="submit" onClick="downloadAllVideos();" value="Reload">
   
   <label for="tag-selector">Filter by tag:</label>
-  <select id="tag-selector" name="tag-selector" onChange="filterByTag(this.value);">
+  <input id="search-tag-input" type="text" placeholder="Search here..." >
+  <input id="search-tag-btn" type="submit" value="Search" onClick="filterByTagInput()">
+  <!-- <select id="tag-selector" name="tag-selector" onChange="filterByTag(this.value);" multiple>
     <option value="Exciting">Exciting</option>
     <option value="Energetic">Energetic</option>
     <option value="Medium">Medium</option>
@@ -28,7 +30,7 @@
     <option value="Engaging">Engaging</option>
     <option value="Interactive">Interactive</option>
     <option value="Easy">Easy</option>
-  </select>
+  </select> -->
   
   <label for="search-input">Search:</label>
   <input id="search-input" type="text" placeholder="Search here..." >

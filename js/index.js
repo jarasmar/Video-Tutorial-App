@@ -57,7 +57,11 @@ function getAllAvailableTags(list) {
 // }
 
 // Filter by tags functionality
-function filterByTag(tag) {
+function filterByTagInput() {
+  // Get user search input, remove punctuation and break words
+  var inputTags = $("#search-tag-input").val().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").split(" ");
+  console.log(inputTags)
+  
   var filteredResults = [];
 
   $.ajax({
@@ -66,11 +70,20 @@ function filterByTag(tag) {
     success: function(result) {
       result.forEach(function(video) {
         var videoTags = video.tags;
-        if (videoTags.includes(tag)) {
-          filteredResults.push(video)
-        }
+        inputTags.forEach(function(tag) {
+          // Capitalise input tag to match API response
+          var capitalisedTag = tag.charAt(0).toUpperCase() + tag.slice(1)
+          
+          if (videoTags.includes(capitalisedTag)) {
+            filteredResults.push(video)
+          }
+        })
       })
-      buildResultList(filteredResults)
+      // Remove Duplicates from filteredResults Array
+      var finalResult = filteredResults.filter((data, index) => {
+        return filteredResults.indexOf(data) === index;
+      })
+      buildResultList(finalResult)
     },
     error: function(error) {
       console.log(error);
