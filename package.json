@@ -4,11 +4,14 @@
   "description": "Web App to retrieve data from a video tutorial platform.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Jara Santamaria",
   "license": "ISC",
   "dependencies": {
     "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
   }
 }
