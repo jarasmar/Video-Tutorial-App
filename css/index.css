@@ -71,7 +71,7 @@ input[type=text] {
   background-color: #FFD700;
 }
 .search-bar-container {
-  padding: 48px 10px 24px;
+  padding: 48px 24px 24px;
   display: flex;
   flex-direction: column;
 }
