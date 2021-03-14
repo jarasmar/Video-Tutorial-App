@@ -56,21 +56,7 @@ function getAllAvailableTags(list) {
       }
     })
   })
-  // addTagOptionsToSelect(tagsArray)
 }
-
-// Add tags dynamically to the selector
-// function addTagOptionsToSelect(tags) {
-//   var tagsSelector = $("#tag-selector");
-
-//   tags.forEach(function(tag) {
-//     var option = document.createElement("option");
-//     option.text = `${tag}`;
-//     option.value = `${tag}`;
-//     console.log(option)
-//     $(tagsSelector).add(option, null);
-//   })
-// }
 
 // Filter by tags functionality
 function filterByTagInput() {

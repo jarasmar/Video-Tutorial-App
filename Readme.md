@@ -17,7 +17,7 @@ up to date information.
 
 - [ ] Searching Methods should be covered with tests.
 
-- [ ] User interface should be clear and easily navigable for the end-user.
+- [x] User interface should be clear and easily navigable for the end-user.
 
 
 ## Example of JSON Response
@@ -35,7 +35,7 @@ up to date information.
 ]
 ```
 
-## Color Palette
+## Company Color Palette
 - Blue: #5FBBDD
 - Green: #2CAB58
 - Red: #D25858
