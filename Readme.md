@@ -34,3 +34,11 @@ up to date information.
   }
 ]
 ```
+
+## Color Palette
+- Blue: #5FBBDD
+- Green: #2CAB58
+- Red: #D25858
+- Yellow: #FFD700
+- White: #ffffff
+- Black: #000000
