@@ -13,20 +13,38 @@
 <body>
   <h1>Video Tutorial Web App</h1>
   
-  <input type="submit" onClick="refreshSearch();" value="Reload">
-  
-  <div id="tag-search-container" class="search-container">
-    <label for="tag-selector">Filter by tag:</label>
-    <input id="search-tag-input" type="text" placeholder="Search here..." >
-    <input id="search-tag-btn" type="submit" value="Search" onClick="filterByTagInput()">
+
+  <div class="search-container">
+    <div class="nav-search">
+      <div class="nav-btn active" id="tag-nav-btn" onClick="changeToTagSearch();">
+        <h3>Search By Tag</h3>
+      </div>
+      <div class="nav-btn" id="free-search-nav-btn" onClick="changeToFreeSearch();">
+        <h3>Free Search</h3>
+      </div>
+    </div>
+
+    <div id="tag-search-container" class="search-bar-container">
+      <div class="search-bar-btn">
+        <input id="search-tag-input" class="search-bar" type="text" placeholder="Search for tags (e.g. Engaging)" >
+        <input id="search-tag-btn" class="search-btn button" type="submit" value="Search" onClick="filterByTagInput()">
+      </div>
+
+      <input class="refresh-search button" type="submit" onClick="refreshSearch();" value="Clear Search">
+    </div>
+      
+      
+    <div id="free-search-container" class="search-bar-container">
+      <div class="search-bar-btn">
+        <input id="search-input" class="search-bar" type="text" placeholder="Find videos by title or teacher" >
+        <input id="search-btn" class="search-btn button" type="submit" value="Search" onClick="filterBySearchInput()">
+      </div>
+
+      <input class="refresh-search button" type="submit" onClick="refreshSearch();" value="Clear Search">
+    </div>
   </div>
   
   
-  <div id="free-search-container" class="search-container">
-    <label for="search-input">Search:</label>
-    <input id="search-input" type="text" placeholder="Search here..." >
-    <input id="search-btn" type="submit" value="Search" onClick="filterBySearchInput()">
-  </div>
 
   <p id="no-result-info">Sorry, there are currently no videos for your search.</p>
   
@@ -37,7 +55,10 @@
   <script>
     $(document).ready(function() {
       $("#no-result-info").hide()
+      $("#free-search-container").hide()
+      
       downloadAllVideos();
+
     })
   </script>
 </body>

@@ -23,11 +23,15 @@ function buildResultList(list) {
     $(listContainer).append(`<li class="list-item" id="${video.id}">\
     <span><h3><a href="${video.videoUrl}" target=blank>${video.videoTitle}</a></h3></span>\
     <span class="teacher-name">${video.teacherName}</span>\
-    <span>Tags: ${video.tags}</span>\
-    
-    <span class='rating'>${(video.averageUserRating * 10).toFixed(2)}</span>\
+    <span class="tags-list">${video.tags}</span>\
+    <span class='rating'>${(video.averageUserRating * 10).toFixed(2)}&#9733;</span>\
     </li>`)
   });
+}
+
+// Style tags
+function styleTags(tags) {
+  console.log(tags)
 }
 
 // Refresh Search Functionality
@@ -165,4 +169,20 @@ function filterBySearchInput() {
     }
   })
 
+}
+
+// Change Search options
+function changeToFreeSearch() {
+  $("#free-search-container").show()
+  $("#tag-search-container").hide()
+
+  $("#tag-nav-btn").removeClass("active");
+  $("#free-search-nav-btn").addClass("active");
+}
+function changeToTagSearch() {
+  $("#free-search-container").hide()
+  $("#tag-search-container").show()
+
+  $("#tag-nav-btn").addClass("active");
+  $("#free-search-nav-btn").removeClass("active");
 }
