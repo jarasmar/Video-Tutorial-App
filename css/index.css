@@ -1,3 +1,4 @@
+/* General Styles */
 body {
   background-color: #fff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -6,6 +7,8 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+
+/* Title Styles */
 #title {
   text-align: center;
   text-transform: uppercase;
@@ -30,7 +33,6 @@ body {
   flex-direction: column;
   border-radius: 4px;
 }
-
 .nav-search {
   display: flex;
   flex-direction: row;
@@ -54,14 +56,11 @@ body {
 .nav-btn.active {
   background-color: #2CAB58;
 }
-
 input[type=text] {
   border: none;
   border-radius: 4px;
   padding: 5px;
 }
-
-
 .button {
   background-color: #fff;
   border: none;
@@ -71,7 +70,6 @@ input[type=text] {
 .button:hover {
   background-color: #FFD700;
 }
-
 .search-bar-container {
   padding: 48px 10px 24px;
   display: flex;
@@ -92,6 +90,7 @@ input[type=text] {
   margin-top: 24px;
 }
 
+
 /* Result List */
 #result-list {
   list-style: none;
@@ -104,7 +103,6 @@ input[type=text] {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
 .list-item {
   display: flex;
   flex-direction: column;
@@ -141,6 +139,23 @@ input[type=text] {
   margin-top: 6px;
 }
 
+/* Info Box */
+#info-box {
+  border: 2px dashed #5FBBDD;
+  border-radius: 4px;
+  padding: 12px;
+  width: fit-content;
+  margin: 48px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#error-icon {
+  color: #D25858;
+  font-size: 40px;
+  margin-right: 20px;
+}
 
 /* Mobile */
 @media screen and (max-width: 600px) {

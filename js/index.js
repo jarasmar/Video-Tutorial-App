@@ -39,7 +39,7 @@ function refreshSearch() {
   // Clear Other inputs and messages from previous searches
   $("#search-input").val('')
   $("#search-tag-input").val('')
-  $("#no-result-info").hide();
+  $("#info-box").hide();
 
   downloadAllVideos();
 }
@@ -75,7 +75,7 @@ function getAllAvailableTags(list) {
 // Filter by tags functionality
 function filterByTagInput() {
   // Clear Other inputs and messages from previous searches
-  $("#no-result-info").hide();
+  $("#info-box").hide();
   $("#search-input").val('')
 
   // Get user search input, remove punctuation and break words into an array
@@ -119,7 +119,7 @@ function filterByTagInput() {
         buildResultList(top20Videos);
       } else {
         $("#result-list").empty();
-        $("#no-result-info").show();
+        $("#info-box").show();
       }
 
     },
@@ -133,7 +133,7 @@ function filterByTagInput() {
 // Search Video Titles and Teachers by user input
 function filterBySearchInput() {
   // Clear Other inputs and messages from previous searches
-  $("#no-result-info").hide();
+  $("#info-box").hide();
   $("#search-tag-input").val('')
   
   // Get user search input
@@ -161,7 +161,7 @@ function filterBySearchInput() {
         buildResultList(filteredResults);
       } else {
         $("#result-list").empty();
-        $("#no-result-info").show();
+        $("#info-box").show();
       }
     },
     error: function(error) {

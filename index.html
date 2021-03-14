@@ -65,8 +65,10 @@
   </div>
   
   
-
-  <p id="no-result-info">Sorry, there are currently no videos for your search.</p>
+  <div id="info-box">
+    <span id="error-icon">&#9888;</span>
+    <span id="error-text">Sorry, there are currently no videos for your search.</span>
+  </div>
   
   <ul id="result-list"> 
     <!-- generated dynamically -->
@@ -74,7 +76,7 @@
 
   <script>
     $(document).ready(function() {
-      $("#no-result-info").hide()
+      $("#info-box").hide()
       $("#free-search-container").hide()
       
       downloadAllVideos();
