@@ -3,6 +3,10 @@
 The aim of this task is to create a web or mobile app for retrieving and displaying
 video tutorial information to a user.
 
+Click this link to visit: https://jarasmar.github.io/Video-Tutorial-App/
+
+![screenshot](./images/screenshotGif.gif)
+
 
 ### Acceptance Criteria
 
