@@ -21,10 +21,11 @@ function buildResultList(list) {
   
   list.forEach(function(video) {
     $(listContainer).append(`<li class="list-item" id="${video.id}">\
-    <span><a href="${video.videoUrl}" target=blank>${video.videoTitle}</a></span>\
+    <span><h3><a href="${video.videoUrl}" target=blank>${video.videoTitle}</a></h3></span>\
+    <span class="teacher-name">${video.teacherName}</span>\
     <span>Tags: ${video.tags}</span>\
-    <span>Teacher: ${video.teacherName}</span>\
-    <span>Rating: ${(video.averageUserRating * 10).toFixed(2)}</span>\
+    
+    <span class='rating'>${(video.averageUserRating * 10).toFixed(2)}</span>\
     </li>`)
   });
 }

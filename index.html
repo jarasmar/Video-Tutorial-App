@@ -15,27 +15,19 @@
   
   <input type="submit" onClick="refreshSearch();" value="Reload">
   
-  <label for="tag-selector">Filter by tag:</label>
-  <input id="search-tag-input" type="text" placeholder="Search here..." >
-  <input id="search-tag-btn" type="submit" value="Search" onClick="filterByTagInput()">
-  <!-- <select id="tag-selector" name="tag-selector" onChange="filterByTag(this.value);" multiple>
-    <option value="Exciting">Exciting</option>
-    <option value="Energetic">Energetic</option>
-    <option value="Medium">Medium</option>
-    <option value="Exploring">Exploring</option>
-    <option value="Hard">Hard</option>
-    <option value="Passive">Passive</option>
-    <option value="Moving">Moving</option>
-    <option value="Calming">Calming</option>
-    <option value="Engaging">Engaging</option>
-    <option value="Interactive">Interactive</option>
-    <option value="Easy">Easy</option>
-  </select> -->
+  <div id="tag-search-container" class="search-container">
+    <label for="tag-selector">Filter by tag:</label>
+    <input id="search-tag-input" type="text" placeholder="Search here..." >
+    <input id="search-tag-btn" type="submit" value="Search" onClick="filterByTagInput()">
+  </div>
   
-  <label for="search-input">Search:</label>
-  <input id="search-input" type="text" placeholder="Search here..." >
-  <input id="search-btn" type="submit" value="Search" onClick="filterBySearchInput()">
   
+  <div id="free-search-container" class="search-container">
+    <label for="search-input">Search:</label>
+    <input id="search-input" type="text" placeholder="Search here..." >
+    <input id="search-btn" type="submit" value="Search" onClick="filterBySearchInput()">
+  </div>
+
   <p id="no-result-info">Sorry, there are currently no videos for your search.</p>
   
   <ul id="result-list"> 
